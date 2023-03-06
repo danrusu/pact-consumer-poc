@@ -33,7 +33,7 @@ describe('ProductService Pact test', () => {
         willRespondWith: {
           status: 200,
           headers: {
-            'Content-Type': 'application/json; charset=utf-8',
+            'Content-Type': 'text/html; charset=utf-8',
           },
         },
       });
