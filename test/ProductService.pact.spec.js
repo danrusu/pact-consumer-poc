@@ -10,8 +10,8 @@ const {
 const { like } = MatchersV3;
 
 const producerMock = new PactV3({
-  consumer: 'Website_Front_End',
-  provider: 'Product_Back_End',
+  consumer: 'pact-consumer-poc',
+  provider: 'pact-provider-poc',
   port: process.env.PACT_PRODUCER_MOCK_PORT || 1122,
   dir: path.resolve(process.cwd(), 'pact', 'pacts'),
   log: path.resolve(process.cwd(), 'logs', 'pact.log'),
