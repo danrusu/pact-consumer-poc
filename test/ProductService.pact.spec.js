@@ -20,6 +20,38 @@ const producerMock = new PactV3({
 });
 
 describe('ProductService Pact test', () => {
+  describe('server healthcheck', () => {
+    test('server is up', async () => {
+      // Arrange
+      // set up Pact interactions
+      producerMock.addInteraction({
+        uponReceiving: 'get health',
+        withRequest: {
+          method: 'GET',
+          path: '/health',
+        },
+        willRespondWith: {
+          status: 200,
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8',
+          },
+        },
+      });
+
+      await producerMock.executeTest(async mockService => {
+        console.log(`PACT Producer Mock URL: ${mockService.url}`);
+
+        const productService = new ProductService(mockService.url);
+
+        // Act & Assert
+        // make request to Pact mock server
+        const isHealthy = await productService.getHealth();
+
+        expect(isHealthy).toStrictEqual(true);
+      });
+    });
+  });
+
   describe('getting all products', () => {
     test('products exist', async () => {
       // Arrange
@@ -53,6 +85,7 @@ describe('ProductService Pact test', () => {
       });
     });
   });
+
   describe('getting one product by ID', () => {
     test('product with ID 100 exists', async () => {
       // Arrange
