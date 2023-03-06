@@ -21,7 +21,7 @@ class ProductService {
   }
 
   getProduct(productId) {
-    return fetch(`${this.baseUrl}/product/${productId}`).then(res =>
+    return fetch(`${this.baseUrl}/products/${productId}`).then(res =>
       res.json(),
     );
   }

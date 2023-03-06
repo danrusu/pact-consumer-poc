@@ -61,7 +61,7 @@ describe('ProductService Pact test', () => {
         uponReceiving: 'get product with ID 100',
         withRequest: {
           method: 'GET',
-          path: '/product/100',
+          path: '/products/100',
         },
         willRespondWith: {
           status: 200,
