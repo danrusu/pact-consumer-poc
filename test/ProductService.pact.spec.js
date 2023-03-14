@@ -16,7 +16,7 @@ const producerMock = new PactV3({
   dir: path.resolve(process.cwd(), 'pact', 'pacts'),
   log: path.resolve(process.cwd(), 'logs', 'pact.log'),
   logLevel: 'warn',
-  spec: SpecificationVersion.SPECIFICATION_VERSION_V4,
+  spec: SpecificationVersion.SPECIFICATION_VERSION_V3,
 });
 
 describe('ProductService Pact test', () => {
