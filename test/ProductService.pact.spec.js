@@ -22,8 +22,7 @@ const producerMock = new PactV3({
 describe('ProductService Pact test', () => {
   describe('server healthcheck', () => {
     test('server is up', async () => {
-      // Arrange
-      // set up Pact interactions
+      // Arrange - set up Pact interactions
       producerMock.addInteraction({
         uponReceiving: 'get health',
         withRequest: {
@@ -33,7 +32,7 @@ describe('ProductService Pact test', () => {
         willRespondWith: {
           status: 200,
           headers: {
-            'Content-Type': 'text/html; charset=utf-8',
+            'Content-Type': 'application/json; charset=utf-8',
           },
         },
       });
@@ -43,10 +42,11 @@ describe('ProductService Pact test', () => {
 
         const productService = new ProductService(mockService.url);
 
-        // Act & Assert
+        // Act
         // make request to Pact mock server
         const isHealthy = await productService.getHealth();
 
+        // Assert
         expect(isHealthy).toStrictEqual(true);
       });
     });
@@ -54,8 +54,7 @@ describe('ProductService Pact test', () => {
 
   describe('getting all products', () => {
     test('products exist', async () => {
-      // Arrange
-      // set up Pact interactions
+      // Arrange- set up Pact interactions
       producerMock.addInteraction({
         states: [{ description: 'products exist' }],
         uponReceiving: 'get all products',
@@ -77,10 +76,11 @@ describe('ProductService Pact test', () => {
 
         const productService = new ProductService(mockService.url);
 
-        // Act & Assert
+        // Act
         // make request to Pact mock server
         const products = await productService.getProducts();
 
+        // Assert
         expect(products).toStrictEqual(testProducts);
       });
     });
@@ -108,9 +108,10 @@ describe('ProductService Pact test', () => {
       await producerMock.executeTest(async mockService => {
         const productService = new ProductService(mockService.url);
 
-        // Act & Assert
+        // Act
         const product = await productService.getProduct(100);
 
+        // Assert
         expect(product).toStrictEqual(testProducts[0]);
       });
     });

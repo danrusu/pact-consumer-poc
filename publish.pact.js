@@ -7,8 +7,8 @@ if (!process.env.CI && !process.env.PACT_PUBLISH) {
   process.exit(0);
 }
 
-const gitHash = runGitCmd('git rev-parse --short HEAD');
-const gitBranch = runGitCmd('git rev-parse --abbrev-ref HEAD');
+const gitHash = runShellCmd('git rev-parse --short HEAD');
+const gitBranch = runShellCmd('git rev-parse --abbrev-ref HEAD');
 
 const pactBroker = process.env.PACT_BROKER_BASE_URL;
 const pactBrokerToken = process.env.PACT_BROKER_TOKEN;
@@ -42,6 +42,6 @@ pact
     console.log('Pact contract publishing failed: ', e);
   });
 
-function runGitCmd(cmd) {
+function runShellCmd(cmd) {
   return childProcess.execSync(cmd).toString().trim();
 }

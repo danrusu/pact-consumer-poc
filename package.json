@@ -2,15 +2,25 @@
   "name": "pact-consumer-poc",
   "version": "1.0.0",
   "description": "Consumer driven contract testing POC",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node src/app.js",
     "test:pact": "jest --testTimeout 60000 --testMatch \"**/*.pact.spec.js\"",
     "pact:publish": "node publish.pact.js"
   },
-  "keywords": [],
+  "keywords": [
+    "pact",
+    "pactflow",
+    "testing",
+    "contract testing",
+    "consumer",
+    "frontend"
+  ],
   "author": "Dan Rusu",
   "license": "ISC",
+  "engines": {
+    "node": ">18.0.0"
+  },
   "dependencies": {
     "express": "^4.18.2"
   },

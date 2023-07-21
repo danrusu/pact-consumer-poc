@@ -1,15 +1,15 @@
-# Contract testing POC
+# Contract testing - Consumer POC
 
 ## 1. Setup
 
 ```bash
-yarn intall
+pnpm install
 ```
 
 ## 2. Start Consumer
 
 ```bash
-yarn start
+pnpm start
 ```
 
 ## 3 Run contract tests using PactFlow.io broker
@@ -26,13 +26,13 @@ yarn start
 - validate producer expectations and generate contract
 
   ```bash
-  yarn test:pact
+  pnpm test:pact
   ```
 
 - publish contract to PactFlow.io
 
   ```bash
-  yarn pact:publish
+  pnpm pact:publish
   ```
 
   ## [Pipeline setup](./.gitlab-cy.yml)
