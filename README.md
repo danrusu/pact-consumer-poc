@@ -40,16 +40,16 @@ pnpm start
 
 - Publish contract to PactFlow.io
 
-  ```powershell
-  docker run --rm `
-    -w /opt/pact `
-    -v ${PWD}/pact/pacts:/opt/pact `
-    -e PACT_BROKER_BASE_URL `
-    -e PACT_BROKER_TOKEN `
-    pactfoundation/pact-cli:latest publish . `
-    --consumer-app-version 1.0.0 `
-    --branch master
-  ```
+```powershell
+docker run --rm `
+  -w /opt/pact `
+  -v ${PWD}/pact/pacts:/opt/pact `
+  -e PACT_BROKER_BASE_URL `
+  -e PACT_BROKER_TOKEN `
+  pactfoundation/pact-cli:latest publish . `
+  --consumer-app-version 1.0.0 `
+  --branch master
+```
 
 - Can I deploy
 
