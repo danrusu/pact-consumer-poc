@@ -17,7 +17,9 @@ class ProductService {
   }
 
   getHealth() {
-    return fetch(`${this.baseUrl}/health`).then(res => res.status === 200);
+    return fetch(`${this.baseUrl}/health`)
+      .then(res => res.json())
+      .then(body => body?.healthy == true);
   }
 
   getProducts() {

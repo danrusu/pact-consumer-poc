@@ -34,6 +34,7 @@ describe('ProductService Pact test', () => {
           headers: {
             'Content-Type': 'application/json; charset=utf-8',
           },
+          body: like({ healthy: true }),
         },
       });
 
@@ -44,10 +45,10 @@ describe('ProductService Pact test', () => {
 
         // Act
         // make request to Pact mock server
-        const isHealthy = await productService.getHealth();
+        const healthy = await productService.getHealth();
 
         // Assert
-        expect(isHealthy).toStrictEqual(true);
+        expect(healthy).toStrictEqual(true);
       });
     });
   });

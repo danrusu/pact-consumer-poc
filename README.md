@@ -14,25 +14,37 @@ pnpm start
 
 ## 3 Run contract tests using PactFlow.io broker
 
-- setup environment vars
-
-  ```bash
-  export PACT_BROKER_BASE_URL=https://domain.pactflow.io
-  export PACT_BROKER_TOKEN=******
-  export PACT_PUBLISH=true
-  export PACT_TAGS="test,v1"
-  ```
-
 - validate producer expectations and generate contract
 
   ```bash
   pnpm test:pact
   ```
 
-- publish contract to PactFlow.io
+- setup environment vars
+
+  - bash
 
   ```bash
-  pnpm pact:publish
+  export PACT_BROKER_BASE_URL=https://domain.pactflow.io
+  export PACT_BROKER_TOKEN=*****
   ```
 
-  ## [Pipeline setup](./.gitlab-cy.yml)
+  - powershell
+
+  ```powershell
+  [System.Environment]::SetEnvironmentVariable('PACT_BROKER_BASE_URL','https://danrusu.pactflow.io')
+  [System.Environment]::SetEnvironmentVariable('PACT_BROKER_TOKEN','*****')
+  ```
+
+- publish contract to PactFlow.io
+
+  ```powershell
+  docker run --rm `
+    -w /opt/pact `
+    -v ${PWD}/pact/pacts:/opt/pact `
+    -e PACT_BROKER_BASE_URL `
+    -e PACT_BROKER_TOKEN `
+    pactfoundation/pact-cli:latest publish . `
+    --consumer-app-version 1.0.0 `
+    --branch master
+  ```
