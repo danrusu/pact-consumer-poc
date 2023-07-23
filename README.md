@@ -20,6 +20,8 @@ pnpm start
   pnpm test:pact
   ```
 
+## 5. [Pact CLI](https://hub.docker.com/r/pactfoundation/pact-cli)
+
 - setup environment vars
 
   - bash
@@ -36,7 +38,7 @@ pnpm start
   [System.Environment]::SetEnvironmentVariable('PACT_BROKER_TOKEN','*****')
   ```
 
-- publish contract to PactFlow.io
+- Publish contract to PactFlow.io
 
   ```powershell
   docker run --rm `
@@ -48,3 +50,31 @@ pnpm start
     --consumer-app-version 1.0.0 `
     --branch master
   ```
+
+- Can I deploy
+
+```powershell
+docker run --rm `
+  -w /opt/pact `
+  -v ${PWD}:/opt/pact `
+  -e PACT_BROKER_BASE_URL `
+  -e PACT_BROKER_TOKEN `
+  pactfoundation/pact-cli:latest pact-broker can-i-deploy `
+  --pacticipant pact-consumer-poc `
+  --version 1.0.0 `
+  --to-environment test
+```
+
+- Record deployment/release
+
+```powershell
+docker run --rm `
+  -w /opt/pact `
+  -v ${PWD}:/opt/pact `
+  -e PACT_BROKER_BASE_URL `
+  -e PACT_BROKER_TOKEN `
+  pactfoundation/pact-cli:latest pact-broker record-deployment `
+  --pacticipant pact-consumer-poc `
+  --version 1.0.0 `
+  --environment test
+```
