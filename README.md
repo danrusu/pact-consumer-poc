@@ -34,7 +34,7 @@ pnpm start
   - powershell
 
   ```powershell
-  [System.Environment]::SetEnvironmentVariable('PACT_BROKER_BASE_URL','https://danrusu.pactflow.io')
+  [System.Environment]::SetEnvironmentVariable('PACT_BROKER_BASE_URL','https://domain.pactflow.io')
   [System.Environment]::SetEnvironmentVariable('PACT_BROKER_TOKEN','*****')
   ```
 
