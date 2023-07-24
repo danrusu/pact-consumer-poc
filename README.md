@@ -2,13 +2,13 @@
 
 ## 1. Setup
 
-```bash
+```powershell
 pnpm install
 ```
 
 ## 2. Start Consumer
 
-```bash
+```powershell
 pnpm start
 ```
 
@@ -16,7 +16,7 @@ pnpm start
 
 - validate producer expectations and generate contract
 
-  ```bash
+  ```powershell
   pnpm test:pact
   ```
 

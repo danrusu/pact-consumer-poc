@@ -1,0 +1,115 @@
+# Logfile created on 2023-07-24 13:41:19 +0000 by logger.rb/v1.5.3
+I, [2023-07-24T13:41:29.234942 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Get health with GET /health returns a response which has status code 200'
+I, [2023-07-24T13:41:29.236611 #13]  INFO -- : Sending GET request to path: "/health" with headers: {}, see debug logs for body
+D, [2023-07-24T13:41:29.237932 #13] DEBUG -- : body :
+I, [2023-07-24T13:41:29.270307 #13]  INFO -- : Received response with status: 200, headers: {"X-Powered-By"=>"Express", "Access-Control-Allow-Origin"=>"http://localhost:1112", "Vary"=>"Origin", "Content-Type"=>"application/json; charset=utf-8", "Content-Length"=>"16", "Etag"=>"W/\"10-sFEQCRKv8VNOpB4kaJ4yIsiJAWg\"", "Date"=>"Mon, 24 Jul 2023 13:41:29 GMT", "Connection"=>"keep-alive", "Keep-Alive"=>"timeout=5"}, see debug logs for body
+D, [2023-07-24T13:41:29.271105 #13] DEBUG -- : body: {"healthy":true}
+I, [2023-07-24T13:41:29.274271 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given product with ID 100 exists get product with ID 100 with GET /products/100 returns a response which has status code 200'
+I, [2023-07-24T13:41:29.274819 #13]  INFO -- : Sending GET request to path: "/products/100" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"product with ID 100 exists"}]}, see debug logs for body
+D, [2023-07-24T13:41:29.275240 #13] DEBUG -- : body :
+I, [2023-07-24T13:41:29.282056 #13]  INFO -- : Received response with status: 200, headers: {"X-Powered-By"=>"Express", "Access-Control-Allow-Origin"=>"http://localhost:1112", "Vary"=>"Origin", "Content-Type"=>"application/json; charset=utf-8", "Content-Length"=>"128", "Etag"=>"W/\"80-Luk6J09GjF/8ak8L0hR4kxcdUus\"", "Date"=>"Mon, 24 Jul 2023 13:41:29 GMT", "Connection"=>"keep-alive", "Keep-Alive"=>"timeout=5"}, see debug logs for body
+D, [2023-07-24T13:41:29.282361 #13] DEBUG -- : body: {"id":100,"name":"iphone 11","price":600,"currency":"EUR","used":false,"stock":99,"shop":{"name":"Emag","location":"Timisoara"}}
+I, [2023-07-24T13:41:29.293256 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given products exist get all products with GET /products returns a response which has status code 200'
+I, [2023-07-24T13:41:29.301419 #13]  INFO -- : Sending GET request to path: "/products" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"products exist"}]}, see debug logs for body
+D, [2023-07-24T13:41:29.302182 #13] DEBUG -- : body :
+I, [2023-07-24T13:41:29.313314 #13]  INFO -- : Received response with status: 200, headers: {"X-Powered-By"=>"Express", "Access-Control-Allow-Origin"=>"http://localhost:1112", "Vary"=>"Origin", "Content-Type"=>"application/json; charset=utf-8", "Content-Length"=>"260", "Etag"=>"W/\"104-gNcID+GB3OMaVwZaBfOAtpLvueY\"", "Date"=>"Mon, 24 Jul 2023 13:41:29 GMT", "Connection"=>"keep-alive", "Keep-Alive"=>"timeout=5"}, see debug logs for body
+D, [2023-07-24T13:41:29.313801 #13] DEBUG -- : body: [{"id":100,"name":"iphone 11","price":600,"currency":"EUR","used":false,"stock":99,"shop":{"name":"Emag","location":"Timisoara"}},{"id":101,"name":"samsung s20","price":300,"currency":"EUR","used":true,"stock":3,"shop":{"name":"Altex","location":"Bucuresti"}}]
+I, [2023-07-24T13:45:18.325101 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Get health with GET /health returns a response which has status code 200'
+I, [2023-07-24T13:45:18.325643 #13]  INFO -- : Sending GET request to path: "/health" with headers: {}, see debug logs for body
+D, [2023-07-24T13:45:18.325976 #13] DEBUG -- : body :
+I, [2023-07-24T13:45:23.342241 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Get health with GET /health returns a response which has a matching body'
+I, [2023-07-24T13:45:23.343125 #13]  INFO -- : Sending GET request to path: "/health" with headers: {}, see debug logs for body
+D, [2023-07-24T13:45:23.343832 #13] DEBUG -- : body :
+I, [2023-07-24T13:45:28.352846 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Get health with GET /health returns a response which includes headers "Content-Type" which equals "application/json; charset=utf-8"'
+I, [2023-07-24T13:45:28.353507 #13]  INFO -- : Sending GET request to path: "/health" with headers: {}, see debug logs for body
+D, [2023-07-24T13:45:28.353969 #13] DEBUG -- : body :
+I, [2023-07-24T13:45:33.363579 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given product with ID 100 exists get product with ID 100 with GET /products/100 returns a response which has status code 200'
+I, [2023-07-24T13:45:33.364941 #13]  INFO -- : Sending GET request to path: "/products/100" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"product with ID 100 exists"}]}, see debug logs for body
+D, [2023-07-24T13:45:33.365893 #13] DEBUG -- : body :
+I, [2023-07-24T13:45:38.374453 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given product with ID 100 exists get product with ID 100 with GET /products/100 returns a response which has a matching body'
+I, [2023-07-24T13:45:38.374993 #13]  INFO -- : Sending GET request to path: "/products/100" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"product with ID 100 exists"}]}, see debug logs for body
+D, [2023-07-24T13:45:38.375305 #13] DEBUG -- : body :
+I, [2023-07-24T13:45:43.384917 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given product with ID 100 exists get product with ID 100 with GET /products/100 returns a response which includes headers "Content-Type" which equals "application/json; charset=utf-8"'
+I, [2023-07-24T13:45:43.386223 #13]  INFO -- : Sending GET request to path: "/products/100" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"product with ID 100 exists"}]}, see debug logs for body
+D, [2023-07-24T13:45:43.386539 #13] DEBUG -- : body :
+I, [2023-07-24T13:45:43.643979 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Get health with GET /health returns a response which has status code 200'
+I, [2023-07-24T13:45:43.644458 #13]  INFO -- : Sending GET request to path: "/health" with headers: {}, see debug logs for body
+D, [2023-07-24T13:45:43.644901 #13] DEBUG -- : body :
+I, [2023-07-24T13:45:43.654300 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Get health with GET /health returns a response which has a matching body'
+I, [2023-07-24T13:45:43.654901 #13]  INFO -- : Sending GET request to path: "/health" with headers: {}, see debug logs for body
+D, [2023-07-24T13:45:43.655303 #13] DEBUG -- : body :
+I, [2023-07-24T13:45:43.657259 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Get health with GET /health returns a response which includes headers "Content-Type" which equals "application/json; charset=utf-8"'
+I, [2023-07-24T13:45:43.657866 #13]  INFO -- : Sending GET request to path: "/health" with headers: {}, see debug logs for body
+D, [2023-07-24T13:45:43.658290 #13] DEBUG -- : body :
+I, [2023-07-24T13:45:43.660859 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given product with ID 100 exists get product with ID 100 with GET /products/100 returns a response which has status code 200'
+I, [2023-07-24T13:45:43.662460 #13]  INFO -- : Sending GET request to path: "/products/100" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"product with ID 100 exists"}]}, see debug logs for body
+D, [2023-07-24T13:45:43.663774 #13] DEBUG -- : body :
+I, [2023-07-24T13:45:43.670119 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given product with ID 100 exists get product with ID 100 with GET /products/100 returns a response which has a matching body'
+I, [2023-07-24T13:45:43.671462 #13]  INFO -- : Sending GET request to path: "/products/100" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"product with ID 100 exists"}]}, see debug logs for body
+D, [2023-07-24T13:45:43.672587 #13] DEBUG -- : body :
+I, [2023-07-24T13:45:43.682186 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given product with ID 100 exists get product with ID 100 with GET /products/100 returns a response which includes headers "Content-Type" which equals "application/json; charset=utf-8"'
+I, [2023-07-24T13:45:43.682974 #13]  INFO -- : Sending GET request to path: "/products/100" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"product with ID 100 exists"}]}, see debug logs for body
+D, [2023-07-24T13:45:43.683566 #13] DEBUG -- : body :
+I, [2023-07-24T13:45:43.686336 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given products exist get all products with GET /products returns a response which has status code 200'
+I, [2023-07-24T13:45:43.686899 #13]  INFO -- : Sending GET request to path: "/products" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"products exist"}]}, see debug logs for body
+D, [2023-07-24T13:45:43.687299 #13] DEBUG -- : body :
+I, [2023-07-24T13:45:43.689263 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given products exist get all products with GET /products returns a response which has a matching body'
+I, [2023-07-24T13:45:43.689929 #13]  INFO -- : Sending GET request to path: "/products" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"products exist"}]}, see debug logs for body
+D, [2023-07-24T13:45:43.690394 #13] DEBUG -- : body :
+I, [2023-07-24T13:45:43.692485 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given products exist get all products with GET /products returns a response which includes headers "Content-Type" which equals "application/json; charset=utf-8"'
+I, [2023-07-24T13:45:43.692970 #13]  INFO -- : Sending GET request to path: "/products" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"products exist"}]}, see debug logs for body
+D, [2023-07-24T13:45:43.693405 #13] DEBUG -- : body :
+I, [2023-07-24T13:45:48.394935 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given products exist get all products with GET /products returns a response which has status code 200'
+I, [2023-07-24T13:45:48.395743 #13]  INFO -- : Sending GET request to path: "/products" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"products exist"}]}, see debug logs for body
+D, [2023-07-24T13:45:48.396284 #13] DEBUG -- : body :
+I, [2023-07-24T13:45:53.405572 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given products exist get all products with GET /products returns a response which has a matching body'
+I, [2023-07-24T13:45:53.407096 #13]  INFO -- : Sending GET request to path: "/products" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"products exist"}]}, see debug logs for body
+D, [2023-07-24T13:45:53.408170 #13] DEBUG -- : body :
+I, [2023-07-24T13:45:58.418367 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given products exist get all products with GET /products returns a response which includes headers "Content-Type" which equals "application/json; charset=utf-8"'
+I, [2023-07-24T13:45:58.419104 #13]  INFO -- : Sending GET request to path: "/products" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"products exist"}]}, see debug logs for body
+D, [2023-07-24T13:45:58.419554 #13] DEBUG -- : body :
+I, [2023-07-24T13:46:16.635915 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Get health with GET /health returns a response which has status code 200'
+I, [2023-07-24T13:46:16.636556 #13]  INFO -- : Sending GET request to path: "/health" with headers: {}, see debug logs for body
+D, [2023-07-24T13:46:16.637037 #13] DEBUG -- : body :
+I, [2023-07-24T13:46:16.655446 #13]  INFO -- : Received response with status: 200, headers: {"X-Powered-By"=>"Express", "Access-Control-Allow-Origin"=>"http://localhost:1112", "Vary"=>"Origin", "Content-Type"=>"application/json; charset=utf-8", "Content-Length"=>"16", "Etag"=>"W/\"10-sFEQCRKv8VNOpB4kaJ4yIsiJAWg\"", "Date"=>"Mon, 24 Jul 2023 13:46:16 GMT", "Connection"=>"keep-alive", "Keep-Alive"=>"timeout=5"}, see debug logs for body
+D, [2023-07-24T13:46:16.656115 #13] DEBUG -- : body: {"healthy":true}
+I, [2023-07-24T13:46:16.675351 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given product with ID 100 exists get product with ID 100 with GET /products/100 returns a response which has status code 200'
+I, [2023-07-24T13:46:16.676252 #13]  INFO -- : Sending GET request to path: "/products/100" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"product with ID 100 exists"}]}, see debug logs for body
+D, [2023-07-24T13:46:16.676806 #13] DEBUG -- : body :
+I, [2023-07-24T13:46:16.688867 #13]  INFO -- : Received response with status: 200, headers: {"X-Powered-By"=>"Express", "Access-Control-Allow-Origin"=>"http://localhost:1112", "Vary"=>"Origin", "Content-Type"=>"application/json; charset=utf-8", "Content-Length"=>"128", "Etag"=>"W/\"80-Luk6J09GjF/8ak8L0hR4kxcdUus\"", "Date"=>"Mon, 24 Jul 2023 13:46:16 GMT", "Connection"=>"keep-alive", "Keep-Alive"=>"timeout=5"}, see debug logs for body
+D, [2023-07-24T13:46:16.689360 #13] DEBUG -- : body: {"id":100,"name":"iphone 11","price":600,"currency":"EUR","used":false,"stock":99,"shop":{"name":"Emag","location":"Timisoara"}}
+I, [2023-07-24T13:46:16.692005 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given products exist get all products with GET /products returns a response which has status code 200'
+I, [2023-07-24T13:46:16.692606 #13]  INFO -- : Sending GET request to path: "/products" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"products exist"}]}, see debug logs for body
+D, [2023-07-24T13:46:16.692957 #13] DEBUG -- : body :
+I, [2023-07-24T13:46:16.700817 #13]  INFO -- : Received response with status: 200, headers: {"X-Powered-By"=>"Express", "Access-Control-Allow-Origin"=>"http://localhost:1112", "Vary"=>"Origin", "Content-Type"=>"application/json; charset=utf-8", "Content-Length"=>"260", "Etag"=>"W/\"104-gNcID+GB3OMaVwZaBfOAtpLvueY\"", "Date"=>"Mon, 24 Jul 2023 13:46:16 GMT", "Connection"=>"keep-alive", "Keep-Alive"=>"timeout=5"}, see debug logs for body
+D, [2023-07-24T13:46:16.701205 #13] DEBUG -- : body: [{"id":100,"name":"iphone 11","price":600,"currency":"EUR","used":false,"stock":99,"shop":{"name":"Emag","location":"Timisoara"}},{"id":101,"name":"samsung s20","price":300,"currency":"EUR","used":true,"stock":3,"shop":{"name":"Altex","location":"Bucuresti"}}]
+I, [2023-07-24T13:47:13.596640 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Get health with GET /health returns a response which has status code 200'
+I, [2023-07-24T13:47:13.597213 #13]  INFO -- : Sending GET request to path: "/health" with headers: {}, see debug logs for body
+D, [2023-07-24T13:47:13.597656 #13] DEBUG -- : body :
+I, [2023-07-24T13:47:13.641806 #13]  INFO -- : Received response with status: 200, headers: {"X-Powered-By"=>"Express", "Access-Control-Allow-Origin"=>"http://localhost:1112", "Vary"=>"Origin", "Content-Type"=>"application/json; charset=utf-8", "Content-Length"=>"15", "Etag"=>"W/\"f-fnf6S891yVDT8KeZGQlsOiVFu3M\"", "Date"=>"Mon, 24 Jul 2023 13:47:13 GMT", "Connection"=>"keep-alive", "Keep-Alive"=>"timeout=5"}, see debug logs for body
+D, [2023-07-24T13:47:13.643116 #13] DEBUG -- : body: {"health":true}
+I, [2023-07-24T13:47:13.657028 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given product with ID 100 exists get product with ID 100 with GET /products/100 returns a response which has status code 200'
+I, [2023-07-24T13:47:13.659307 #13]  INFO -- : Sending GET request to path: "/products/100" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"product with ID 100 exists"}]}, see debug logs for body
+D, [2023-07-24T13:47:13.660407 #13] DEBUG -- : body :
+I, [2023-07-24T13:47:13.675032 #13]  INFO -- : Received response with status: 200, headers: {"X-Powered-By"=>"Express", "Access-Control-Allow-Origin"=>"http://localhost:1112", "Vary"=>"Origin", "Content-Type"=>"application/json; charset=utf-8", "Content-Length"=>"128", "Etag"=>"W/\"80-Luk6J09GjF/8ak8L0hR4kxcdUus\"", "Date"=>"Mon, 24 Jul 2023 13:47:13 GMT", "Connection"=>"keep-alive", "Keep-Alive"=>"timeout=5"}, see debug logs for body
+D, [2023-07-24T13:47:13.675501 #13] DEBUG -- : body: {"id":100,"name":"iphone 11","price":600,"currency":"EUR","used":false,"stock":99,"shop":{"name":"Emag","location":"Timisoara"}}
+I, [2023-07-24T13:47:13.678458 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given products exist get all products with GET /products returns a response which has status code 200'
+I, [2023-07-24T13:47:13.679124 #13]  INFO -- : Sending GET request to path: "/products" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"products exist"}]}, see debug logs for body
+D, [2023-07-24T13:47:13.679529 #13] DEBUG -- : body :
+I, [2023-07-24T13:47:13.687968 #13]  INFO -- : Received response with status: 200, headers: {"X-Powered-By"=>"Express", "Access-Control-Allow-Origin"=>"http://localhost:1112", "Vary"=>"Origin", "Content-Type"=>"application/json; charset=utf-8", "Content-Length"=>"260", "Etag"=>"W/\"104-gNcID+GB3OMaVwZaBfOAtpLvueY\"", "Date"=>"Mon, 24 Jul 2023 13:47:13 GMT", "Connection"=>"keep-alive", "Keep-Alive"=>"timeout=5"}, see debug logs for body
+D, [2023-07-24T13:47:13.688365 #13] DEBUG -- : body: [{"id":100,"name":"iphone 11","price":600,"currency":"EUR","used":false,"stock":99,"shop":{"name":"Emag","location":"Timisoara"}},{"id":101,"name":"samsung s20","price":300,"currency":"EUR","used":true,"stock":3,"shop":{"name":"Altex","location":"Bucuresti"}}]
+I, [2023-07-24T13:48:45.058925 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Get health with GET /health returns a response which has status code 200'
+I, [2023-07-24T13:48:45.059597 #13]  INFO -- : Sending GET request to path: "/health" with headers: {}, see debug logs for body
+D, [2023-07-24T13:48:45.060088 #13] DEBUG -- : body :
+I, [2023-07-24T13:48:45.099902 #13]  INFO -- : Received response with status: 200, headers: {"X-Powered-By"=>"Express", "Access-Control-Allow-Origin"=>"http://localhost:1112", "Vary"=>"Origin", "Content-Type"=>"application/json; charset=utf-8", "Content-Length"=>"16", "Etag"=>"W/\"10-sFEQCRKv8VNOpB4kaJ4yIsiJAWg\"", "Date"=>"Mon, 24 Jul 2023 13:48:45 GMT", "Connection"=>"keep-alive", "Keep-Alive"=>"timeout=5"}, see debug logs for body
+D, [2023-07-24T13:48:45.100355 #13] DEBUG -- : body: {"healthy":true}
+I, [2023-07-24T13:48:45.113436 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given product with ID 100 exists get product with ID 100 with GET /products/100 returns a response which has status code 200'
+I, [2023-07-24T13:48:45.114503 #13]  INFO -- : Sending GET request to path: "/products/100" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"product with ID 100 exists"}]}, see debug logs for body
+D, [2023-07-24T13:48:45.115186 #13] DEBUG -- : body :
+I, [2023-07-24T13:48:45.127819 #13]  INFO -- : Received response with status: 200, headers: {"X-Powered-By"=>"Express", "Access-Control-Allow-Origin"=>"http://localhost:1112", "Vary"=>"Origin", "Content-Type"=>"application/json; charset=utf-8", "Content-Length"=>"128", "Etag"=>"W/\"80-Luk6J09GjF/8ak8L0hR4kxcdUus\"", "Date"=>"Mon, 24 Jul 2023 13:48:45 GMT", "Connection"=>"keep-alive", "Keep-Alive"=>"timeout=5"}, see debug logs for body
+D, [2023-07-24T13:48:45.128267 #13] DEBUG -- : body: {"id":100,"name":"iphone 11","price":600,"currency":"EUR","used":false,"stock":99,"shop":{"name":"Emag","location":"Timisoara"}}
+I, [2023-07-24T13:48:45.131038 #13]  INFO -- : Running example 'Verifying a pact between pact-consumer-poc and pact-provider-poc Given products exist get all products with GET /products returns a response which has status code 200'
+I, [2023-07-24T13:48:45.131721 #13]  INFO -- : Sending GET request to path: "/products" with headers: {"X_PACT_PROVIDER_STATES"=>[{"name"=>"products exist"}]}, see debug logs for body
+D, [2023-07-24T13:48:45.132033 #13] DEBUG -- : body :
+I, [2023-07-24T13:48:45.141150 #13]  INFO -- : Received response with status: 200, headers: {"X-Powered-By"=>"Express", "Access-Control-Allow-Origin"=>"http://localhost:1112", "Vary"=>"Origin", "Content-Type"=>"application/json; charset=utf-8", "Content-Length"=>"260", "Etag"=>"W/\"104-gNcID+GB3OMaVwZaBfOAtpLvueY\"", "Date"=>"Mon, 24 Jul 2023 13:48:45 GMT", "Connection"=>"keep-alive", "Keep-Alive"=>"timeout=5"}, see debug logs for body
+D, [2023-07-24T13:48:45.141594 #13] DEBUG -- : body: [{"id":100,"name":"iphone 11","price":600,"currency":"EUR","used":false,"stock":99,"shop":{"name":"Emag","location":"Timisoara"}},{"id":101,"name":"samsung s20","price":300,"currency":"EUR","used":true,"stock":3,"shop":{"name":"Altex","location":"Bucuresti"}}]
