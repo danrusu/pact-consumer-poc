@@ -1,4 +1,6 @@
-# Contract testing - Consumer POC
+# Contract testing POC - Consumer
+
+- related repository - [pact-provider-poc](https://github.com/danrusu/pact-provider-poc)
 
 ## 1. Setup
 
