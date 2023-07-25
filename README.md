@@ -43,19 +43,22 @@ pnpm start
 - Publish contract to PactFlow.io
 
 ```powershell
+$hash=git rev-parse --short head
+$branch=git rev-parse --abbrev-ref head
 docker run --rm `
   -w /opt/pact `
   -v ${PWD}/pact/pacts:/opt/pact `
   -e PACT_BROKER_BASE_URL `
   -e PACT_BROKER_TOKEN `
   pactfoundation/pact-cli:latest publish . `
-  --consumer-app-version 1.0.0 `
-  --branch master
+  --consumer-app-version $hash `
+  --branch $branch
 ```
 
 - Can I deploy
 
 ```powershell
+$hash=git rev-parse --short head
 docker run --rm `
   -w /opt/pact `
   -v ${PWD}:/opt/pact `
@@ -63,13 +66,14 @@ docker run --rm `
   -e PACT_BROKER_TOKEN `
   pactfoundation/pact-cli:latest pact-broker can-i-deploy `
   --pacticipant pact-consumer-poc `
-  --version 1.0.0 `
+  --version $hash `
   --to-environment test
 ```
 
 - Record deployment/release
 
 ```powershell
+$hash=git rev-parse --short head
 docker run --rm `
   -w /opt/pact `
   -v ${PWD}:/opt/pact `
@@ -77,6 +81,6 @@ docker run --rm `
   -e PACT_BROKER_TOKEN `
   pactfoundation/pact-cli:latest pact-broker record-deployment `
   --pacticipant pact-consumer-poc `
-  --version 1.0.0 `
+  --version $hash `
   --environment test
 ```
