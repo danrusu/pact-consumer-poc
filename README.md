@@ -45,14 +45,16 @@ pnpm start
 ```powershell
 $hash=git rev-parse --short head
 $branch=git rev-parse --abbrev-ref head
-docker run --rm `
+docker run `
+  --rm `
   -w /opt/pact `
   -v ${PWD}/pact/pacts:/opt/pact `
   -e PACT_BROKER_BASE_URL `
   -e PACT_BROKER_TOKEN `
   pactfoundation/pact-cli:latest publish . `
   --consumer-app-version $hash `
-  --branch $branch
+  --branch $branch `
+  --no-merge
 ```
 
 - Can I deploy
