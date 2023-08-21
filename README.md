@@ -86,3 +86,5 @@ docker run --rm `
   --version $hash `
   --environment test
 ```
+
+- New feature
