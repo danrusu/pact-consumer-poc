@@ -3,6 +3,7 @@ name: consumer-pipeline
 on:
   workflow_dispatch:
   pull_request:
+  push:
 
 env:
   PACT_BROKER_BASE_URL: https://danrusu.pactflow.io
