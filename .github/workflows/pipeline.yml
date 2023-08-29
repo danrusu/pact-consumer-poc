@@ -41,7 +41,7 @@ jobs:
 
       - name: Get short sha
         run: |
-          echo ::set-env name=SHORT_SHA::$(echo ${GIT_COMMIT:8})
+          echo ::set-env name=SHORT_SHA::$(echo ${GIT_COMMIT:0:8})
 
       #   - name: Get branch name
       #     run: |
@@ -52,8 +52,8 @@ jobs:
           docker run \
             -w /opt/pact \
             -v ${PWD}/pact/pacts:/opt/pact \
-            -e PACT_BROKER_BASE_URL=${{env.PACT_BROKER_BASE_URL}}
-            -e PACT_BROKER_TOKEN=${{env.PACT_BROKER_TOKEN}}
+            -e PACT_BROKER_BASE_URL=${{env.PACT_BROKER_BASE_URL}} \
+            -e PACT_BROKER_TOKEN=${{env.PACT_BROKER_TOKEN}} \
             pactfoundation/pact-cli:latest publish . \
             --consumer-app-version ${{env.SHORT_SHA}} \
             --branch ${{env.GIT_REF}} \
