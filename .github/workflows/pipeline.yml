@@ -12,6 +12,7 @@ env:
   API_BASE_URL: http://localhost:4000
   GIT_COMMIT: ${{github.sha}}
   GIT_REF: ${{github.ref}}
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
 
 jobs:
   unit-tests:
