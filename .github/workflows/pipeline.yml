@@ -18,7 +18,6 @@ env:
 jobs:
   unit-tests:
     runs-on: ubuntu-latest
-
     name: Unit tests (fake)
     steps:
       - run: echo "Successfull unit tests"
@@ -58,6 +57,12 @@ jobs:
             pactfoundation/pact-cli:latest publish . \
             --consumer-app-version ${{env.SHORT_SHA}} \
             --branch ${{env.BRANCH}} \
+
+  e2e-tests:
+    runs-on: ubuntu-latest
+    name: E2E tests (fake)
+    steps:
+      - run: echo "Successfull e2e tests"
 
   deploy:
     needs:
