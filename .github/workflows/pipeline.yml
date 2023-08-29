@@ -40,7 +40,7 @@ jobs:
 
       - name: Get short sha
         run: |
-          echo ::set-env name=SHORT_SHA::$(echo ${${{env.GIT_COMMIT}}:8})
+          echo ::set-env name=SHORT_SHA::$(echo ${GIT_COMMIT:8})
 
       #   - name: Get branch name
       #     run: |
