@@ -3,7 +3,11 @@ name: consumer-pipeline
 on:
   workflow_dispatch:
   pull_request:
+    branches:
+      - master
   push:
+    branches:
+      - master
 
 env:
   PACT_BROKER_BASE_URL: https://danrusu.pactflow.io
@@ -41,7 +45,7 @@ jobs:
 
       - name: Get short sha
         run: |
-          echo ::set-env name=SHORT_SHA::$(echo ${GIT_COMMIT:0:8})
+          echo ::set-env name=SHORT_SHA::$(echo ${GIT_COMMIT:0:7})
 
       - name: Get branch name
         run: |
