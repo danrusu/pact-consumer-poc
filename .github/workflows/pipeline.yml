@@ -1,4 +1,4 @@
-name: consumer-build
+name: consumer-pipeline
 
 on:
   workflow_dispatch:
@@ -25,7 +25,9 @@ jobs:
         run: npm run test:pact
 
   deploy:
-    needs: unit-tests
+    needs:
+      - unit-tests
+      - contract-tests
     runs-on: ubuntu-20.04
     steps:
       - run: echo "Deploy to PREPROD"
