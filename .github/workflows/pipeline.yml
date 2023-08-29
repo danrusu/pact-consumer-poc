@@ -37,14 +37,14 @@ jobs:
       - name: Run contract tests
         run: npm run test:pact
 
-      - name: Publish pacts between pactflow-example-consumer and ${PACT_PROVIDER}
+      - name: Publish pacts between pactflow-example-consumer and ${{ env.PACT_PROVIDER }}
         run: |
-          docker run 
-          -w /opt/pact
-          -v ${PWD}/pact/pacts:/opt/pact
-          pactfoundation/pact-cli:latest publish .
-          --consumer-app-version ${GIT_COMMIT}
-          --branch ${GIT_REF:11}
+          docker run \
+            -w /opt/pact \
+            -v ${PWD}/pact/pacts:/opt/pact \
+            pactfoundation/pact-cli:latest publish . \
+            --consumer-app-version ${{ env.GIT_COMMIT }} \
+            --branch ${{env.GIT_REF }} \
 
   deploy:
     needs:
