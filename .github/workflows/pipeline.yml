@@ -39,11 +39,11 @@ jobs:
       - name: Run contract tests
         run: npm run test:pact
 
-      - name: Save short sha to ENV ${{env.SHORT_SHA}}
+      - name: Save short sha to ENV
         run: |
           echo ::set-env name=SHORT_SHA::$(echo ${GIT_COMMIT:0:7})
 
-      - name: Save branch name to env - ${{env.BRANCH}}
+      - name: Save branch name to ENV
         run: |
           echo ::set-env name=BRANCH::$(echo $GIT_REF | rev | cut -d'/' -f 1 | rev)
 
