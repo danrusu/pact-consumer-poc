@@ -7,10 +7,10 @@ on:
 env:
   PACT_BROKER_BASE_URL: https://danrusu.pactflow.io
   PACT_PROVIDER: pact-provider-poc
-  PACT_BROKER_TOKEN: ${{ secrets.PACT_BROKER_TOKEN }}
+  PACT_BROKER_TOKEN: ${{secrets.PACT_BROKER_TOKEN}}
   API_BASE_URL: http://localhost:4000
-  GIT_COMMIT: ${{ github.sha }}
-  GIT_REF: ${{ github.ref }}
+  GIT_COMMIT: ${{github.sha}}
+  GIT_REF: ${{github.ref}}
 
 jobs:
   unit-tests:
@@ -41,16 +41,20 @@ jobs:
         run: |
           echo ::set-env name=SHORT_SHA::$(git rev-parse --short head)
 
-      - name: Publish pacts between pactflow-example-consumer and ${{ env.PACT_PROVIDER }}
+      - name: Get branch name
+        run: |
+          echo ::set-env name=BRANCH::$(git rev-parse --abbrev-ref head)
+
+      - name: Publish pacts between pactflow-example-consumer and ${{env.PACT_PROVIDER}}
         run: |
           docker run \
             -w /opt/pact \
             -v ${PWD}/pact/pacts:/opt/pact \
-            -e PACT_BROKER_BASE_URL=${{ env.PACT_BROKER_BASE_URL }}
-            -e PACT_BROKER_TOKEN=${{ env.PACT_BROKER_TOKEN }}
+            -e PACT_BROKER_BASE_URL=${{env.PACT_BROKER_BASE_URL}}
+            -e PACT_BROKER_TOKEN=${{env.PACT_BROKER_TOKEN}}
             pactfoundation/pact-cli:latest publish . \
-            --consumer-app-version ${{ env.SHORT_SHA }} \
-            --branch ${{env.GIT_REF }} \
+            --consumer-app-version ${{env.SHORT_SHA}} \
+            --branch ${{env.BRANCH}} \
 
   deploy:
     needs:
