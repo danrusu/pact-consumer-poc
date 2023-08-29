@@ -43,9 +43,9 @@ jobs:
         run: |
           echo ::set-env name=SHORT_SHA::$(echo ${GIT_COMMIT:0:8})
 
-      #   - name: Get branch name
-      #     run: |
-      #       echo ::set-env name=BRANCH::$(git rev-parse --abbrev-ref head)
+      - name: Get branch name
+        run: |
+          echo ::set-env name=BRANCH::$(echo $GIT_REF | rev | cut -d'/' -f 1 | rev)
 
       - name: Publish pacts between pactflow-example-consumer and ${{env.PACT_PROVIDER}}
         run: |
@@ -56,7 +56,7 @@ jobs:
             -e PACT_BROKER_TOKEN=${{env.PACT_BROKER_TOKEN}} \
             pactfoundation/pact-cli:latest publish . \
             --consumer-app-version ${{env.SHORT_SHA}} \
-            --branch ${{env.GIT_REF}} \
+            --branch ${{env.BRANCH}} \
 
   deploy:
     needs:
