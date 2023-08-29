@@ -83,7 +83,7 @@ jobs:
             -e PACT_BROKER_TOKEN=${{env.PACT_BROKER_TOKEN}} \
             pactfoundation/pact-cli:latest pact-broker can-i-deploy \
             --pacticipant ${{env.PACT_CONSUMER}} \
-            --version ${{env.SHORT_SHA}}
+            --version ${{env.SHORT_SHA}} \
             --to-environment ${{env.DEPLOY_ENV}}
 
   deploy:
@@ -115,5 +115,5 @@ jobs:
           -e PACT_BROKER_TOKEN=${{env.PACT_BROKER_TOKEN}} \
           pactfoundation/pact-cli:latest record-deployment \
           --pacticipant ${{env.PACT_CONSUMER}} \
-          --version ${{env.SHORT_SHA}}
+          --version ${{env.SHORT_SHA}} \
           --to-environment ${{env.DEPLOY_ENV}}
