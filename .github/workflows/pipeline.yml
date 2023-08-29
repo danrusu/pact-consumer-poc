@@ -116,4 +116,4 @@ jobs:
           pactfoundation/pact-cli:latest pact-broker record-deployment \
           --pacticipant ${{env.PACT_CONSUMER}} \
           --version ${{env.SHORT_SHA}} \
-          --to-environment ${{env.DEPLOY_ENV}}
+          --environment ${{env.DEPLOY_ENV}}
