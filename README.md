@@ -60,8 +60,6 @@ docker run --rm `
 ```powershell
 $hash=git rev-parse --short head
 docker run --rm `
-  -w /opt/pact `
-  -v ${PWD}:/opt/pact `
   -e PACT_BROKER_BASE_URL `
   -e PACT_BROKER_TOKEN `
   pactfoundation/pact-cli:latest pact-broker can-i-deploy `
@@ -75,8 +73,6 @@ docker run --rm `
 ```powershell
 $hash=git rev-parse --short head
 docker run --rm `
-  -w /opt/pact `
-  -v ${PWD}:/opt/pact `
   -e PACT_BROKER_BASE_URL `
   -e PACT_BROKER_TOKEN `
   pactfoundation/pact-cli:latest pact-broker record-deployment `

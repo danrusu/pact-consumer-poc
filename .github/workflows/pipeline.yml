@@ -16,6 +16,8 @@ env:
   GIT_COMMIT: ${{github.sha}}
   GIT_REF: ${{github.head_ref}} # this works only for PRs
 
+  DEPLOY_ENV: test # set this dynamically
+
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true # to be able use ::set-env
 
 jobs:
@@ -59,7 +61,7 @@ jobs:
             -e PACT_BROKER_TOKEN=${{env.PACT_BROKER_TOKEN}} \
             pactfoundation/pact-cli:latest publish . \
             --consumer-app-version ${{env.SHORT_SHA}} \
-            --branch ${{env.BRANCH}} \
+            --branch ${{env.BRANCH}}
 
   e2e-tests:
     name: E2E tests (fake)
@@ -67,12 +69,41 @@ jobs:
     steps:
       - run: echo "Successfull e2e tests"
 
+  can-i-deploy:
+    name: Can I deploy
+    needs: contract-tests
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          docker run \
+            -e PACT_BROKER_BASE_URL=${{env.PACT_BROKER_BASE_URL}} \
+            -e PACT_BROKER_TOKEN=${{env.PACT_BROKER_TOKEN}} \
+            pactfoundation/pact-cli:latest pact-broker can-i-deploy \
+            --pacticipant ${{env.PACT_CONSUMER}} \
+            --version ${{env.SHORT_SHA}}
+            --to-environment ${{env.DEPLOY_ENV}}
+
   deploy:
-    name: Deploy
+    name: Deploy (fake)
     needs:
       - unit-tests
       - contract-tests
       - e2e-tests
+      - can-i-deploy
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Deploy to PREPROD"
+      - run: echo "Deploy to '${{env.DEPLOY_ENV}}' environment"
+
+  record-deployment:
+    name: Record Deployment
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          docker run \
+          -e PACT_BROKER_BASE_URL=${{env.PACT_BROKER_BASE_URL}} \
+          -e PACT_BROKER_TOKEN=${{env.PACT_BROKER_TOKEN}} \
+          pactfoundation/pact-cli:latest record-deployment \
+          --pacticipant ${{env.PACT_CONSUMER}} \
+          --version ${{env.SHORT_SHA}}
+          --to-environment ${{env.DEPLOY_ENV}}
