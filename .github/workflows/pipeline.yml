@@ -68,6 +68,7 @@ jobs:
     needs:
       - unit-tests
       - contract-tests
+      - e2e-tests
     runs-on: ubuntu-latest
     steps:
       - run: echo "Deploy to PREPROD"
