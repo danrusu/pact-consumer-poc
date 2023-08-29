@@ -4,31 +4,52 @@ on:
   workflow_dispatch:
   pull_request:
 
+env:
+  PACT_BROKER_BASE_URL: https://danrusu.pactflow.io
+  PACT_PROVIDER: pact-provider-poc
+  PACT_BROKER_TOKEN: ${{ secrets.PACT_BROKER_TOKEN }}
+  API_BASE_URL: http://localhost:4000
+  GIT_COMMIT: ${{ github.sha }}
+  GIT_REF: ${{ github.ref }}
+
 jobs:
   unit-tests:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
+
     name: Unit tests (fake)
     steps:
       - run: echo "Successfull unit tests"
 
   contract-tests:
-    needs: unit-tests
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     name: Contract tests
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
       - name: Install dependencies
         run: npm install
 
-      - name: contract-tests
+      - name: Run contract tests
         run: npm run test:pact
+
+      - name: Publish pacts between pactflow-example-consumer and ${PACT_PROVIDER}
+        run: |
+          docker run 
+          -w /opt/pact
+          -v ${PWD}/pact/pacts:/opt/pact
+          pactfoundation/pact-cli:latest publish .
+          --consumer-app-version ${GIT_COMMIT}
+          --branch ${GIT_REF:11}
 
   deploy:
     needs:
       - unit-tests
       - contract-tests
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - run: echo "Deploy to PREPROD"
