@@ -8,11 +8,14 @@ on:
 
 env:
   PACT_BROKER_BASE_URL: https://danrusu.pactflow.io
-  PACT_PROVIDER: pact-provider-poc
   PACT_BROKER_TOKEN: ${{secrets.PACT_BROKER_TOKEN}}
+  PACT_CONSUMER: pact-consumer-poc
+  PACT_PROVIDER: pact-provider-poc
   API_BASE_URL: http://localhost:4000
+
   GIT_COMMIT: ${{github.sha}}
   GIT_REF: ${{github.head_ref}} # this works only for PRs
+
   ACTIONS_ALLOW_UNSECURE_COMMANDS: true # to be able use ::set-env
 
 jobs:
@@ -47,7 +50,7 @@ jobs:
         run: |
           echo ::set-env name=BRANCH::$(echo $GIT_REF | rev | cut -d'/' -f 1 | rev)
 
-      - name: Publish pacts between pactflow-example-consumer and ${{env.PACT_PROVIDER}}
+      - name: Publish pacts between ${{env.PACT_CONSUMER}} and ${{env.PACT_PROVIDER}}
         run: |
           docker run \
             -w /opt/pact \
