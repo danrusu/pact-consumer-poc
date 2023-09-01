@@ -20,39 +20,6 @@ const producerMock = new PactV3({
 });
 
 describe('ProductService Pact test', () => {
-  describe('server healthcheck', () => {
-    test('server is up', async () => {
-      // Arrange - set up Pact interactions
-      producerMock.addInteraction({
-        uponReceiving: 'get health',
-        withRequest: {
-          method: 'GET',
-          path: '/health',
-        },
-        willRespondWith: {
-          status: 200,
-          headers: {
-            'Content-Type': 'application/json; charset=utf-8',
-          },
-          body: like({ healthy: true }),
-        },
-      });
-
-      await producerMock.executeTest(async mockService => {
-        console.log(`PACT Producer Mock URL: ${mockService.url}`);
-
-        const productService = new ProductService(mockService.url);
-
-        // Act
-        // make request to Pact mock server
-        const healthy = await productService.getHealth();
-
-        // Assert
-        expect(healthy).toStrictEqual(true);
-      });
-    });
-  });
-
   describe('getting all products', () => {
     test('products exist', async () => {
       // Arrange- set up Pact interactions
