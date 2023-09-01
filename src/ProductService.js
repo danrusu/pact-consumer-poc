@@ -1,4 +1,6 @@
-// ProductService will be used in Browser and in NodeJS contract tests
+// IMPORTANT
+// The App will use ProductService in Browser
+// The contract tests run in NodeJS and will also use ProductService
 const isNodeJs = typeof window === 'undefined';
 
 if (isNodeJs) {
