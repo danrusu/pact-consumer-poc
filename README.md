@@ -80,3 +80,5 @@ docker run --rm `
   --version $hash `
   --environment test
 ```
+
+- just for testing pipeline
